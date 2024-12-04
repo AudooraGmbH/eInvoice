@@ -1,0 +1,25 @@
+{
+  "name": "factur-x-ts",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "description": "",
+  "dependencies": {
+    "@xmldom/xmldom": "^0.8.10",
+    "buffer": "^6.0.3",
+    "luxon": "^3.4.4",
+    "pdf-lib": "^1.17.1",
+    "xpath": "^0.0.34",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.4.2",
+    "@types/node": "^22.10.1",
+    "prettier": "^3.4.1",
+    "ts-node": "^10.9.2"
+  }
+}
