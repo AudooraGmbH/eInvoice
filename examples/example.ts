@@ -1,4 +1,4 @@
-import { FacturX } from "../src";
+import { EInvoice } from "../src";
 import { readFileSync } from "node:fs";
 
 /**
@@ -7,7 +7,7 @@ console.log(FacturX.fromXML(xml));
 */
 const pdf = readFileSync("./zugferd/zugferd_2p1_EXTENDED_Kostenrechnung.pdf");
 (async () => {
-  const facturX = await FacturX.fromPDF(pdf);
-  console.log(facturX.profile);
-  console.log(facturX.data.transaction);
+  const eInvoice = await EInvoice.fromPDF(pdf);
+  console.log(eInvoice.profile);
+  console.log(eInvoice.data.transaction);
 })();

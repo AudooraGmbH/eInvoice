@@ -1,6 +1,6 @@
 import { DOCUMENT_TYPES } from "./documentTypes";
 
-export default interface ProfileBasic {
+export default interface Data {
   meta: {
     businessProcessType: string; // BT-23
     specificationProfile: string; // BT-24

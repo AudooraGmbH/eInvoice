@@ -1,5 +1,5 @@
 import { PDFDict, PDFDocument, PDFName, PDFString, PDFStream, PDFRawStream, decodePDFRawStream } from "pdf-lib";
-import ProfileBasic from "./types/profileBasic";
+import Data from "./types/data";
 import { DOCUMENT_TYPES } from "./types/documentTypes";
 import { XMLDocument } from "./xml";
 
@@ -7,13 +7,13 @@ const FACTUR_X_FILENAMES = ["factur-x.xml", "factur\\055x\\056xml", "zugferd-inv
   (name) => PDFString.of(name).toString(),
 );
 
-export class FacturX {
-  public data: ProfileBasic;
+export class EInvoice {
+  public data: Data;
 
   private _raw: any;
   public pdf: PDFDocument | undefined;
 
-  constructor(data: ProfileBasic) {
+  constructor(data: Data) {
     this.data = data;
   }
 
@@ -50,7 +50,7 @@ export class FacturX {
     return undefined;
   }
 
-  public static async fromPDF(bytes: string | Uint8Array | ArrayBuffer): Promise<FacturX> {
+  public static async fromPDF(bytes: string | Uint8Array | ArrayBuffer): Promise<EInvoice> {
     const pdf = await PDFDocument.load(bytes);
 
     // Search for xml-attachment in embedded files
@@ -69,7 +69,7 @@ export class FacturX {
     throw new Error("could not find xml-attachment in pdf");
   }
 
-  public static fromXML(xml: string | Buffer): FacturX {
+  public static fromXML(xml: string | Buffer): EInvoice {
     const doc = new XMLDocument(xml);
 
     const meta = {
@@ -160,7 +160,7 @@ export class FacturX {
       })
       .at(0);
 
-    const transaction: ProfileBasic["transaction"] = {
+    const transaction: Data["transaction"] = {
       currency: doc.getRequiredCode("/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode/text()"),
       totalGross: parseFloat(doc.getCode("/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:GrandTotalAmount/text()") ?? ""),
       totalNet: parseFloat(doc.getCode("/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:LineTotalAmount/text()") ?? ""),
@@ -198,7 +198,7 @@ export class FacturX {
       throw new Error("XML is missing Buyer Entity");
     }
 
-    const out: ProfileBasic = {
+    const out: Data = {
       meta,
       documentId,
       documentType: documentType as DOCUMENT_TYPES,
@@ -210,7 +210,7 @@ export class FacturX {
       transaction,
     };
 
-    const instance = new FacturX(out);
+    const instance = new EInvoice(out);
     instance._raw = doc;
 
     return instance;

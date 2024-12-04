@@ -1,13 +1,14 @@
 {
-  "name": "factur-x-ts",
+  "name": "einvoice",
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
     "build": "npx tsc"
   },
-  "author": "",
-  "license": "UNLICENSED",
-  "description": "",
+  "repository": "git+https://gitlab.audoora.de/Audoora/zugferd-parser.git",
+  "author": "Audoora <luca@audoora.de> (https://audoora.de)",
+  "license": "GPL-3.0-only",
+  "description": "ZUGFeRD / XRechnung / Factur-X / EN-16931 parser/extractor",
   "dependencies": {
     "@xmldom/xmldom": "^0.8.10",
     "buffer": "^6.0.3",
