@@ -1,11 +1,12 @@
 {
   "name": "@audoora-ext/einvoice",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.ts",
+  "types": "src/index.ts",
   "scripts": {
     "build": "npx tsc"
   },
-  "repository": "git+https://gitlab.audoora.de/Audoora/zugferd-parser.git",
+  "repository": "https://github.com/AudooraGmbH/eInvoice",
   "author": "Audoora <luca@audoora.de> (https://audoora.de)",
   "license": "GPL-3.0-only",
   "description": "ZUGFeRD / XRechnung / Factur-X / EN-16931 parser/extractor",
