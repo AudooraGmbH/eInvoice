@@ -4,7 +4,7 @@
 ## Installation
 
 ```bash
-npm install einvoice
+npm install @audoora-ext/einvoice
 ```
 
 ## Usage
