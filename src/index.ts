@@ -2,6 +2,7 @@ import { PDFDict, PDFDocument, PDFName, PDFString, PDFStream, PDFRawStream, deco
 import Data from "./types/data";
 import { DOCUMENT_TYPES } from "./types/documentTypes";
 import { XMLDocument } from "./xml";
+import { Buffer } from "buffer";
 
 const FACTUR_X_FILENAMES = ["factur-x.xml", "factur\\055x\\056xml", "zugferd-invoice.xml", "zugferd\\055invoice\\056xml", "ZUGFeRD-invoice.xml", "ZUGFeRD\\055invoice\\056xml", "xrechnung.xml", "xrechnung\\056xml"].map(
   (name) => PDFString.of(name).toString(),
