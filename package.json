@@ -16,8 +16,8 @@
     "buffer": "^6.0.3",
     "luxon": "^3.4.4",
     "pdf-lib": "^1.17.1",
-    "xpath": "^0.0.34",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "xpath": "^0.0.34"
   },
   "devDependencies": {
     "@types/luxon": "^3.4.2",
