@@ -1,6 +1,6 @@
 {
   "name": "@audoora-ext/einvoice",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
